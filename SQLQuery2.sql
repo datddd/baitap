@@ -41,27 +41,7 @@ CREATE TABLE NGUOIDUNG(
     HoTen NVARCHAR(50) ,
     Email NVARCHAR(100), -- Địa chỉ email
     SDT NVARCHAR(15), -- Số điện thoại
-	FOREIGN KEY(ID) REFERENCES DangNhap(ID)
+	--FOREIGN KEY(ID) REFERENCES DangNhap(ID)
 )
-CREATE TRIGGER trg_InsertNguoiDung
-ON DangNhap
-AFTER INSERT
-AS
-BEGIN
-    -- Thêm dữ liệu vào bảng NGUOIDUNG khi có bản ghi mới trong bảng DangNhap
-    INSERT INTO NGUOIDUNG (ID, TenDangNhap, MatKhau, Email, SDT)
-    SELECT ID, TenDangNhap, MatKhau, Email, SDT
-    FROM inserted;
-END;
-GO
-CREATE TRIGGER trg_InsertTK
-ON NGUOIDUNG
-AFTER INSERT
-AS
-BEGIN
-    -- Thêm dữ liệu vào bảng DANGNHAP khi có bản ghi mới trong bảng NGUOIDUNG
-    INSERT INTO DangNhap(ID, TenDangNhap, MatKhau, Email, SDT)
-    SELECT ID, TenDangNhap, MatKhau, Email, SDT
-    FROM inserted;
-END;
+
 

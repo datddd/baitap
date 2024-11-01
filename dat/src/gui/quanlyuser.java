@@ -44,7 +44,6 @@ public class quanlyuser extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         TXTTK = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        BUTTONTK = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -62,6 +61,9 @@ public class quanlyuser extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "THÔNG TIN NGƯỜI DÙNG", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(255, 51, 51))); // NOI18N
@@ -106,13 +108,6 @@ public class quanlyuser extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setText("TÌM KIẾM ");
-
-        BUTTONTK.setText("TÌM KIẾM");
-        BUTTONTK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BUTTONTKActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("MK");
 
@@ -239,8 +234,7 @@ public class quanlyuser extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(TXTTK, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BUTTONTK)))
+                                .addGap(86, 86, 86)))
                         .addGap(0, 18, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -251,8 +245,7 @@ public class quanlyuser extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TXTTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(BUTTONTK))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(289, 289, 289))
@@ -264,11 +257,7 @@ public class quanlyuser extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TXTTKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TXTTKKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TXTTKKeyPressed
-
-    private void BUTTONTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUTTONTKActionPerformed
-    String searchText = TXTTK.getText().trim(); // Lấy chuỗi nhập từ ô tìm kiếm và loại bỏ khoảng trắng
+      String searchText = TXTTK.getText().trim(); // Lấy chuỗi nhập từ ô tìm kiếm và loại bỏ khoảng trắng
 
     List<user> filteredUsers;
     if (searchText.isEmpty()) {
@@ -288,7 +277,7 @@ public class quanlyuser extends javax.swing.JInternalFrame {
             u.getId(), u.getTendn(), u.getMk(), u.getTen(), u.getEmail(), u.getSdt()
         });
     }
-    }//GEN-LAST:event_BUTTONTKActionPerformed
+    }//GEN-LAST:event_TXTTKKeyPressed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        int selectedRow = jTable1.getSelectedRow();
@@ -380,7 +369,6 @@ public class quanlyuser extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BUTTONSUA;
     private javax.swing.JButton BUTTONTHEM;
-    private javax.swing.JButton BUTTONTK;
     private javax.swing.JButton BUTTONXOA;
     private javax.swing.JTextField TXTTK;
     private javax.swing.JButton jButton1;
