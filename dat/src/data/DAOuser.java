@@ -110,15 +110,22 @@ public class DAOuser {
         return result;
     }
 
-    public List<user> getUserByName(String searchText) {
+    public List<user> searchUserByCharacter(String character) {
         List<user> resultList = new ArrayList<>();
-        String query = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP LIKE ?";
+        String query = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP LIKE ? OR MATKHAU LIKE ? OR HOTEN LIKE ? OR EMAIL LIKE ? OR SDT LIKE ?";
 
         try (Connection connection = ConnectToSQLServer.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, "%" + searchText + "%");
+            // Thiết lập các giá trị cho các tham số LIKE
+            preparedStatement.setString(1, "%" + character + "%");
+            preparedStatement.setString(2, "%" + character + "%");
+            preparedStatement.setString(3, "%" + character + "%");
+            preparedStatement.setString(4, "%" + character + "%");
+            preparedStatement.setString(5, "%" + character + "%");
+
             ResultSet rs = preparedStatement.executeQuery();
 
+            // Lặp qua kết quả và thêm vào danh sách kết quả
             while (rs.next()) {
                 user u = new user();
                 u.setId(rs.getString("id"));
@@ -149,7 +156,7 @@ public class DAOuser {
             }
 
             // Tìm theo tên đăng nhập hoặc các trường khác có liên quan
-            resultList.addAll(getUserByName(searchText));
+            resultList.addAll(searchUserByCharacter(searchText));
 
         } catch (Exception e) {
             e.printStackTrace();

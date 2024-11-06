@@ -70,6 +70,12 @@ public class dangnhap extends javax.swing.JInternalFrame {
             }
         });
 
+        txtmk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,6 +155,11 @@ public class dangnhap extends javax.swing.JInternalFrame {
                 }
         // TODO add your handling code here:
     }//GEN-LAST:event_buttondnActionPerformed
+
+    private void txtmkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmkActionPerformed
+        buttondnActionPerformed(null);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmkActionPerformed
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttondn;

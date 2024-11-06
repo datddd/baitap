@@ -122,6 +122,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtmk">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtmkActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
