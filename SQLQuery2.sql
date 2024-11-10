@@ -41,7 +41,25 @@ CREATE TABLE NGUOIDUNG(
     HoTen NVARCHAR(50) ,
     Email NVARCHAR(100), -- Địa chỉ email
     SDT NVARCHAR(15), -- Số điện thoại
-	--FOREIGN KEY(ID) REFERENCES DangNhap(ID)
+	FOREIGN KEY(ID) REFERENCES DangNhap(ID)
 )
+MERGE NguoiDung AS target
+USING DangNhap AS source
+ON target.ID = source.ID
+WHEN MATCHED THEN 
+    UPDATE SET 
+        target.TenDangNhap = source.TenDangNhap,
+        target.MatKhau = source.MatKhau,
+        target.Email = source.Email,
+        target.SDT = source.SDT
+WHEN NOT MATCHED BY TARGET THEN
+    INSERT (ID, TenDangNhap, MatKhau, Email, SDT)
+    VALUES (source.ID, source.TenDangNhap, source.MatKhau, source.Email, source.SDT)
+WHEN NOT MATCHED BY SOURCE THEN
+    DELETE;
+ALTER TABLE NguoiDung
+ADD CONSTRAINT DF_NguoiDung_HoTen DEFAULT 'nguoidung' FOR HoTen;
+
+
 
 

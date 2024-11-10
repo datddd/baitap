@@ -3,6 +3,7 @@ package data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class DAOticket {
     // Phương thức để thêm vé
@@ -21,8 +22,10 @@ public class DAOticket {
 
             preparedStatement.executeUpdate();
             System.out.println("Thêm vé thành công!");
+            JOptionPane.showMessageDialog(null,"Thêm vé thành công!");
         } catch (SQLException e) {
             System.out.println("Lỗi khi thêm vé: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Lỗi khi thêm vé: ");
         }
     }
 

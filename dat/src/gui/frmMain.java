@@ -277,7 +277,9 @@ public class frmMain extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          this.role = "guest"; // Reset lại vai trò thành guest
          toggleMenuVisibility();  // Ẩn các chức năng admin, hiện đăng nhập
-        // TODO add your handling code here:
+         for (javax.swing.JInternalFrame frame : myDesktop.getAllFrames()) {
+        frame.dispose();
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked

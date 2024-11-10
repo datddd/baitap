@@ -301,7 +301,6 @@ public class quanlydatdatve extends javax.swing.JInternalFrame {
 
     // Thêm vé vào cơ sở dữ liệu
     dao.addTicket(ticket);
-    JOptionPane.showMessageDialog(this, "Đặt vé thành công!");
     buttonhienthidanhsanhveActionPerformed(null); // Cập nhật lại bảng
 
         // TODO add your handling code here:
